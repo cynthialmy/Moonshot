@@ -22,6 +22,7 @@
 		8C6830372B206E7800EC3C35 /* RectDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6830362B206E7800EC3C35 /* RectDivider.swift */; };
 		8C6830392B206F9F00EC3C35 /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6830382B206F9F00EC3C35 /* CrewView.swift */; };
 		8C68303B2B20700500EC3C35 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C68303A2B20700500EC3C35 /* CrewMember.swift */; };
+		8C68303D2B20735400EC3C35 /* GridLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C68303C2B20735400EC3C35 /* GridLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8C6830362B206E7800EC3C35 /* RectDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectDivider.swift; sourceTree = "<group>"; };
 		8C6830382B206F9F00EC3C35 /* CrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = "<group>"; };
 		8C68303A2B20700500EC3C35 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
+		8C68303C2B20735400EC3C35 /* GridLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,12 @@
 		8C4D05C92B1E5703006F9FE9 = {
 			isa = PBXGroup;
 			children = (
+				8C68303C2B20735400EC3C35 /* GridLayoutView.swift */,
 				8C6830322B1FBCE700EC3C35 /* MissionView.swift */,
 				8C6830382B206F9F00EC3C35 /* CrewView.swift */,
 				8C6830362B206E7800EC3C35 /* RectDivider.swift */,
 				8C6830342B1FDB8100EC3C35 /* AstronautView.swift */,
-				8C6830302B1FB7E600EC3C35 /* Color-Theme.swift */,
+				8C4D05D72B1E5703006F9FE9 /* ContentView.swift */,
 				8C4D05D42B1E5703006F9FE9 /* Moonshot */,
 				8C4D05D32B1E5703006F9FE9 /* Products */,
 			);
@@ -79,8 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				8C4D05D52B1E5703006F9FE9 /* MoonshotApp.swift */,
-				8C4D05D72B1E5703006F9FE9 /* ContentView.swift */,
 				8C68302C2B1F8E6400EC3C35 /* Bundle-Decodable.swift */,
+				8C6830302B1FB7E600EC3C35 /* Color-Theme.swift */,
 				8C68302A2B1F8D2800EC3C35 /* Astronaut.swift */,
 				8C68302E2B1FADA500EC3C35 /* Mission.swift */,
 				8C68303A2B20700500EC3C35 /* CrewMember.swift */,
@@ -174,6 +177,7 @@
 			files = (
 				8C6830332B1FBCE700EC3C35 /* MissionView.swift in Sources */,
 				8C68302B2B1F8D2800EC3C35 /* Astronaut.swift in Sources */,
+				8C68303D2B20735400EC3C35 /* GridLayoutView.swift in Sources */,
 				8C6830352B1FDB8100EC3C35 /* AstronautView.swift in Sources */,
 				8C6830312B1FB7E600EC3C35 /* Color-Theme.swift in Sources */,
 				8C4D05D82B1E5703006F9FE9 /* ContentView.swift in Sources */,

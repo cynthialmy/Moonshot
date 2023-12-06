@@ -23,6 +23,7 @@
 		8C6830392B206F9F00EC3C35 /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6830382B206F9F00EC3C35 /* CrewView.swift */; };
 		8C68303B2B20700500EC3C35 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C68303A2B20700500EC3C35 /* CrewMember.swift */; };
 		8C68303D2B20735400EC3C35 /* GridLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C68303C2B20735400EC3C35 /* GridLayoutView.swift */; };
+		8C68303F2B20767D00EC3C35 /* ListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C68303E2B20767D00EC3C35 /* ListLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8C6830382B206F9F00EC3C35 /* CrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = "<group>"; };
 		8C68303A2B20700500EC3C35 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		8C68303C2B20735400EC3C35 /* GridLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayoutView.swift; sourceTree = "<group>"; };
+		8C68303E2B20767D00EC3C35 /* ListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				8C6830362B206E7800EC3C35 /* RectDivider.swift */,
 				8C6830342B1FDB8100EC3C35 /* AstronautView.swift */,
 				8C4D05D72B1E5703006F9FE9 /* ContentView.swift */,
+				8C68303E2B20767D00EC3C35 /* ListLayoutView.swift */,
 				8C4D05D42B1E5703006F9FE9 /* Moonshot */,
 				8C4D05D32B1E5703006F9FE9 /* Products */,
 			);
@@ -187,6 +190,7 @@
 				8C68302F2B1FADA500EC3C35 /* Mission.swift in Sources */,
 				8C68302D2B1F8E6400EC3C35 /* Bundle-Decodable.swift in Sources */,
 				8C68303B2B20700500EC3C35 /* CrewMember.swift in Sources */,
+				8C68303F2B20767D00EC3C35 /* ListLayoutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

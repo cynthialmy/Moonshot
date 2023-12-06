@@ -1,5 +1,5 @@
 //
-//  GridLayoutView.swift
+//  ListLayoutView.swift
 //  Moonshot
 //
 //  Created by Cynthia LI on 2023-12-06.
@@ -7,41 +7,42 @@
 
 import SwiftUI
 
-struct GridLayoutView: View {
+struct ListLayoutView: View {
     let astronauts: [String:Astronaut]
     let missions: [Mission]
-    let columns = [GridItem(.adaptive(minimum: 150))]
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns) {
+            LazyVStack {
                 ForEach(missions) { mission in
                     NavigationLink {
                         MissionView(mission: mission, astronauts: astronauts)
                     } label: {
-                        VStack {
+                        HStack {
                             Image(mission.image)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
                                 .padding()
+                            Spacer()
                             VStack {
                                 Text(mission.displayName)
-                                    .font(.headline)
+                                    .font(.title)
                                     .foregroundStyle(.white)
                                 Text(mission.formattedLaunchDate)
                                     .font(.caption)
                                     .foregroundStyle(.white.opacity(0.5))
                             }
-                            .padding(.vertical)
-                            .frame(maxWidth: .infinity)
-                            .background(.lightBackground)
                         }
+                        .padding(.horizontal)
                         .clipShape(.rect(cornerRadius: 10))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.lightBackground)
                         )
+                        .frame(maxWidth: .infinity)
+                        .background(.lightBackground)
+                        
                     }
                 }
             }
@@ -54,6 +55,7 @@ struct GridLayoutView: View {
     let astronauts: [String:Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    return GridLayoutView(astronauts: astronauts, missions: missions)
+    return ListLayoutView(astronauts: astronauts, missions: missions)
         .preferredColorScheme(.dark)
 }
+

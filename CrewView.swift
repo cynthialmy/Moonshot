@@ -9,37 +9,37 @@ import SwiftUI
 
 struct CrewView: View {
     let crew: [CrewMember]
-    @Binding var path: NavigationPath
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(crew, id: \.role) { crewMember in
-                    NavigationLink {
-                        AstronautView(astronaut: crewMember.astronaut, path: $path)
-                    } label: {
-                        HStack {
-                            Image(crewMember.astronaut.id)
-                                .resizable()
-                                .frame(width: 104, height: 72)
-                                .clipShape(.capsule)
-                                .overlay(
-                                    Capsule()
-                                        .strokeBorder(.white, lineWidth: 1)
-                                )
-                            VStack(alignment: .leading) {
-                                Text(crewMember.astronaut.name)
-                                    .foregroundStyle(.white)
-                                    .font(.headline)
-                                Text(crewMember.role)
-                                    .foregroundStyle(.white.opacity(0.5))
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(crew, id: \.role) { crewMember in
+                        NavigationLink(value: crewMember, label: {
+                            HStack {
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    .frame(width: 104, height: 72)
+                                    .clipShape(.capsule)
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(.white, lineWidth: 1)
+                                    )
+                                VStack(alignment: .leading) {
+                                    Text(crewMember.astronaut.name)
+                                        .foregroundStyle(.white)
+                                        .font(.headline)
+                                    Text(crewMember.role)
+                                        .foregroundStyle(.white.opacity(0.5))
+                                }
                             }
-                        }
-                        .padding(.horizontal)
+                            .padding(.horizontal)
+                        })
+                    }
+                    .navigationDestination(for: CrewMember.self) { crewMember in
+                        AstronautView(astronaut: crewMember.astronaut)
                     }
                 }
             }
-        }
     }
 }
 
@@ -53,8 +53,7 @@ struct CrewView: View {
             fatalError("Missing \(member.name)")
         }
     }
-    @State var path = NavigationPath()
     
-    return CrewView(crew: crew, path: $path)
+    return CrewView(crew: crew)
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }

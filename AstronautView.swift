@@ -9,22 +9,26 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
-    @Binding var path: NavigationPath
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Image(astronaut.id)
-                    .resizable()
-                    .scaledToFit()
-
-                Text(astronaut.description)
-                    .padding()
+            ScrollView {
+                VStack {
+                    Image(astronaut.id)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Text(astronaut.description)
+                        .padding()
+                }
+//                .toolbar {
+//                    Button("Home") {
+//                        path = NavigationPath()
+//                    }
+//                }
             }
-        }
-        .background(.darkBackground)
-        .navigationTitle(astronaut.name)
-        .navigationBarTitleDisplayMode(.inline)
+            .background(.darkBackground)
+            .navigationTitle(astronaut.name)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -32,6 +36,6 @@ struct AstronautView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     @State var path = NavigationPath()
 
-    return AstronautView(astronaut: astronauts["aldrin"]!, path: $path)
+    return AstronautView(astronaut: astronauts["aldrin"]!)
         .preferredColorScheme(.dark)
 }

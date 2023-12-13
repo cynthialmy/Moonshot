@@ -32,6 +32,7 @@ class PathStore {
         do {
             let data = try JSONEncoder().encode(representation)
             try data.write(to: savePath)
+            print("Saved to navigation data.")
         } catch {
             print("Failed to save navigation data.")
         }
@@ -40,18 +41,19 @@ class PathStore {
 
 struct ContentView: View {
     @State private var showingGrid = true
-    @State private var pathStore = PathStore()
+//    @State private var pathStore = PathStore()
+    @State private var path = NavigationPath()
     
     let astronauts: [String:Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
 
     var body: some View {
-        NavigationStack(path: $pathStore.path) {
+        NavigationStack(path: $path) {
             Group {
                 if showingGrid {
-                    GridLayoutView(astronauts: astronauts, missions: missions, path: $pathStore.path)
+                    GridLayoutView(astronauts: astronauts, missions: missions)
                 } else {
-                    ListLayoutView(astronauts: astronauts, missions: missions, path: $pathStore.path)
+                    ListLayoutView(astronauts: astronauts, missions: missions)
                 }
             }
             .toolbar {
@@ -64,6 +66,9 @@ struct ContentView: View {
                         showingGrid = true
                     }
                 }
+//                Button("Home") {
+//                    path = NavigationPath()
+//                }
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)

@@ -40,17 +40,18 @@ class PathStore {
 
 struct ContentView: View {
     @State private var showingGrid = true
+    @State private var pathStore = PathStore()
     
     let astronauts: [String:Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $pathStore.path) {
             Group {
                 if showingGrid {
-                    GridLayoutView(astronauts: astronauts, missions: missions)
+                    GridLayoutView(astronauts: astronauts, missions: missions, path: $pathStore.path)
                 } else {
-                    ListLayoutView(astronauts: astronauts, missions: missions)
+                    ListLayoutView(astronauts: astronauts, missions: missions, path: $pathStore.path)
                 }
             }
             .toolbar {

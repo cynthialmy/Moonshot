@@ -10,8 +10,9 @@ import SwiftUI
 struct MissionView: View {
     let mission: Mission
     let crew: [CrewMember]
+    @Binding var path: NavigationPath
     
-    init(mission: Mission, astronauts: [String: Astronaut]) {
+    init(mission: Mission, astronauts: [String: Astronaut], path: Binding<NavigationPath>) {
         self.mission = mission
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
@@ -20,6 +21,7 @@ struct MissionView: View {
                 fatalError("Missing \(member.name)")
             }
         }
+        self._path = path
     }
     
     var body: some View {
@@ -54,7 +56,7 @@ struct MissionView: View {
                 })
                 .padding(.horizontal)
                 
-                CrewView(crew: crew)
+                CrewView(crew: crew, path: $path)
             }
             .padding(.bottom)
         }
@@ -67,7 +69,8 @@ struct MissionView: View {
 #Preview {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String:Astronaut] = Bundle.main.decode("astronauts.json")
+    @State var path = NavigationPath()
     
-    return MissionView(mission: missions[0], astronauts: astronauts)
+    return MissionView(mission: missions[0], astronauts: astronauts, path: $path)
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }

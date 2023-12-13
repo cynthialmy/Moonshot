@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
+    @Binding var path: NavigationPath
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -28,7 +30,8 @@ struct AstronautView: View {
 
 #Preview {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    @State var path = NavigationPath()
 
-    return AstronautView(astronaut: astronauts["aldrin"]!)
+    return AstronautView(astronaut: astronauts["aldrin"]!, path: $path)
         .preferredColorScheme(.dark)
 }

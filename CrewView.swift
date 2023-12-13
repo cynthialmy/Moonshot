@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CrewView: View {
     let crew: [CrewMember]
+    @Binding var path: NavigationPath
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(crew, id: \.role) { crewMember in
                     NavigationLink {
-                        AstronautView(astronaut: crewMember.astronaut)
+                        AstronautView(astronaut: crewMember.astronaut, path: $path)
                     } label: {
                         HStack {
                             Image(crewMember.astronaut.id)
@@ -52,6 +53,8 @@ struct CrewView: View {
             fatalError("Missing \(member.name)")
         }
     }
-    return CrewView(crew: crew)
+    @State var path = NavigationPath()
+    
+    return CrewView(crew: crew, path: $path)
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }

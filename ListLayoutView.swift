@@ -10,13 +10,14 @@ import SwiftUI
 struct ListLayoutView: View {
     let astronauts: [String:Astronaut]
     let missions: [Mission]
+    @Binding var path: NavigationPath
     
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(missions) { mission in
                     NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
+                        MissionView(mission: mission, astronauts: astronauts, path: $path)
                     } label: {
                         HStack {
                             Image(mission.image)
@@ -54,8 +55,9 @@ struct ListLayoutView: View {
 #Preview {
     let astronauts: [String:Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
+    @State var path = NavigationPath()
     
-    return ListLayoutView(astronauts: astronauts, missions: missions)
+    return ListLayoutView(astronauts: astronauts, missions: missions, path: $path)
         .preferredColorScheme(.dark)
 }
 
